@@ -17,7 +17,7 @@ node 'dev-box' {
 	}
 
 	exec { 'Install ubuntu-desktop':
-		command => '/usr/bin/apt-get install ubuntu-desktop'
+		command => '/usr/bin/apt-get install ubuntu-desktop',
 		require => Exec['Update and Upgrade ubuntu']
 	}
 	
