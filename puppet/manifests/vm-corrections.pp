@@ -13,14 +13,14 @@ node 'dev-box' {
 	# }
 
 	exec { 'Update and Upgrade ubuntu':
-		command => '/usr/bin/apt-get update && /usr/bin/apt-get upgrade -y && /usr/bin/apt-get autoremove && /usr/bin/apt-get autoclean'
+		command => '/usr/bin/apt-get -o DPkg::Options::=--force-confdef update -y && /usr/bin/apt-get -o DPkg::Options::=--force-confdef upgrade -y'
 	}
 
 	exec { 'Install ubuntu-desktop':
 		command => '/usr/bin/apt-get install ubuntu-desktop',
 		require => Exec['Update and Upgrade ubuntu']
 	}
-	
+
   #       file_line { 'Keyboard Mapping':
   #               path  => '/etc/default/keyboard',
   #               line  => 'XKBLAYOUT="us"',
