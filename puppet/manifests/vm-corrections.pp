@@ -20,12 +20,12 @@ node 'dev-box' {
 		command => '/usr/bin/apt-get install ubuntu-desktop',
 		require => Exec['Update and Upgrade ubuntu']
 	}
-
-        file_line { 'Keyboard Mapping':
-                path  => '/etc/default/keyboard',
-                line  => 'XKBLAYOUT="us"',
-                match => '^XKBLAYOUT="ch"',
-	}
+	
+  #       file_line { 'Keyboard Mapping':
+  #               path  => '/etc/default/keyboard',
+  #               line  => 'XKBLAYOUT="us"',
+  #               match => '^XKBLAYOUT="ch"',
+	# }
 }
 
 
