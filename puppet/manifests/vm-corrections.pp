@@ -12,9 +12,9 @@ node 'dev-box' {
 	# 	require => Exec['Add git repository for mate']
 	# }
 
-	exec { 'Update and Upgrade ubuntu':
-		command => '/usr/bin/apt-get -o DPkg::Options::=--force-confdef update -y && /usr/bin/apt-get -o DPkg::Options::=--force-confdef upgrade -y'
-	}
+	# exec { 'Update and Upgrade ubuntu':
+	# 	command => '/usr/bin/apt-get -o DPkg::Options::=--force-confdef update -y && /usr/bin/apt-get -o DPkg::Options::=--force-confdef upgrade -y'
+	# }
 
 	exec { 'Install ubuntu-desktop':
 		command => '/usr/bin/apt-get -o DPkg::Options::=--force-confdef install -y ubuntu-desktop',
