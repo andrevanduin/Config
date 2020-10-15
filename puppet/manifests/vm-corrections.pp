@@ -13,18 +13,13 @@ node 'dev-box' {
 	# }
 
 	exec { 'Update and Upgrade ubuntu':
-		command => '/usr/bin/apt-get update && /usr/bin/apt-get upgrade'
+		command => '/usr/bin/apt-get update && /usr/bin/apt-get upgrade -y && /usr/bin/apt-get autoremove && /usr/bin/apt-get autoclean'
 	}
 
 	exec { 'Install ubuntu-desktop':
 		command => '/usr/bin/apt-get install ubuntu-desktop',
 		require => Exec['Update and Upgrade ubuntu']
 	}
-	
-	# exec { 'Update': 
-	# 	command => '/usr/bin/apt-get update',
-	# 	require => Exec['Remove original xenial mate file']
-	# }
 
         file_line { 'Keyboard Mapping':
                 path  => '/etc/default/keyboard',
